@@ -11,16 +11,16 @@
   <meta name="description" content="一、项目大致目录">
 <meta property="og:type" content="article">
 <meta property="og:title" content="webpack + vue 配置多入口单页应用">
-<meta property="og:url" content="https://gt333.github.io/2017/12/10/webpack/index.html">
+<meta property="og:url" content="https://gt333.github.io/2017/12/14/webpack/index.html">
 <meta property="og:site_name" content="无聊的时候">
 <meta property="og:description" content="一、项目大致目录">
 <meta property="og:locale" content="zh_utf-8">
-<meta property="og:image" content="https://gt333.github.io/2017/12/images/roder.png">
-<meta property="og:updated_time" content="2018-02-02T14:55:31.707Z">
+<meta property="og:image" content="https://gt333.github.io/images/roder.png">
+<meta property="og:updated_time" content="2018-02-02T15:44:13.904Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="webpack + vue 配置多入口单页应用">
 <meta name="twitter:description" content="一、项目大致目录">
-<meta name="twitter:image" content="https://gt333.github.io/2017/12/images/roder.png">
+<meta name="twitter:image" content="https://gt333.github.io/images/roder.png">
   
     <link rel="alternative" href="/atom.xml" title="无聊的时候" type="application/atom+xml">
   
@@ -61,8 +61,6 @@
 			
 				<li><a href="/">主页</a></li>
 	        
-				<li><a href="/tags/随笔/">随笔</a></li>
-	        
 			</ul>
 		</nav>
 		<nav class="header-smart-menu">
@@ -83,14 +81,6 @@
 		<nav class="header-nav">
 			<div class="social">
 				
-					<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
-		        
-					<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-		        
-					<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-		        
-					<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
-		        
 			</div>
 		</nav>
 	</header>		
@@ -117,21 +107,11 @@
 			
 				
 			
-				
-			
 			
 			
 			<nav class="header-nav">
 				<div class="social">
 					
-						<a class="github" target="_blank" href="#" title="github"><i class="icon-github"></i></a>
-			        
-						<a class="weibo" target="_blank" href="#" title="weibo"><i class="icon-weibo"></i></a>
-			        
-						<a class="rss" target="_blank" href="#" title="rss"><i class="icon-rss"></i></a>
-			        
-						<a class="zhihu" target="_blank" href="#" title="zhihu"><i class="icon-zhihu"></i></a>
-			        
 				</div>
 			</nav>
 
@@ -139,9 +119,7 @@
 				<ul style="width: 50%">
 				
 				
-					<li style="width: 50%"><a href="/">主页</a></li>
-		        
-					<li style="width: 50%"><a href="/tags/随笔/">随笔</a></li>
+					<li style="width: 100%"><a href="/">主页</a></li>
 		        
 				</ul>
 			</nav>
@@ -168,15 +146,19 @@
   
 
         
-        <a href="/2017/12/10/webpack/" class="archive-article-date">
-  	<time datetime="2017-12-10T13:23:32.161Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-10</time>
+        <a href="/2017/12/14/webpack/" class="archive-article-date">
+  	<time datetime="2017-12-14T15:12:24.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-12-14</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h2 id="一、项目大致目录"><a href="#一、项目大致目录" class="headerlink" title="一、项目大致目录"></a>一、项目大致目录</h2><p><img src="../../images/roder.png" alt="Alt text"></p>
+        <h2 id="一、项目大致目录"><a href="#一、项目大致目录" class="headerlink" title="一、项目大致目录"></a>一、项目大致目录</h2><a id="more"></a>
+<p><img src="/images/roder.png" alt="项目目录"></p>
+<h2 id="二、webpack-工具类utils-js添加配置"><a href="#二、webpack-工具类utils-js添加配置" class="headerlink" title="二、webpack 工具类utils.js添加配置"></a>二、webpack 工具类utils.js添加配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">// 获取多级的入口文件 -- 多页面</span><br><span class="line">exports.getMultiEntry = function (globPath) &#123;</span><br><span class="line">  var entries = &#123;&#125;, basename, tmp;</span><br><span class="line">  glob.sync(globPath).forEach(function (entry) &#123;</span><br><span class="line">    basename = path.basename(entry, path.extname(entry));</span><br><span class="line">    entries[basename] = entry;</span><br><span class="line">  &#125;);</span><br><span class="line">  return entries;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="三、webpack-HtmlWebpackPlugin插件配置"><a href="#三、webpack-HtmlWebpackPlugin插件配置" class="headerlink" title="三、webpack HtmlWebpackPlugin插件配置"></a>三、webpack HtmlWebpackPlugin插件配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">//构建生成多页面的HtmlWebpackPlugin配置，主要是循环生成</span><br><span class="line">var pages =  utils.getMultiEntry(&apos;./src/module/**/*.html&apos;);</span><br><span class="line">for (var pathname in pages) &#123;</span><br><span class="line">  var conf = &#123;</span><br><span class="line">    filename: pathname + &apos;.html&apos;,</span><br><span class="line">    template: pages[pathname], // 模板路径</span><br><span class="line">    chunks: [&apos;vendor&apos;, &apos;manifest&apos;, pathname], // 每个html引用的js模块</span><br><span class="line">    inject: true,              // js插入位置</span><br><span class="line">    hash:true,</span><br><span class="line">    minify: &#123;</span><br><span class="line">      removeComments: true,</span><br><span class="line">      collapseWhitespace: true,</span><br><span class="line">      removeAttributeQuotes: true</span><br><span class="line">    &#125;,</span><br><span class="line">    chunksSortMode: &apos;dependency&apos;</span><br><span class="line">  &#125;;</span><br><span class="line"></span><br><span class="line">  webpackConfig.plugins.push(new HtmlWebpackPlugin(conf));</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>demo(<a href="https://github.com/gt333/more_entry_spa" target="_blank" rel="noopener">https://github.com/gt333/more_entry_spa</a>)</p>
 
       
 
@@ -256,7 +238,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=https://gt333.github.io/2017/12/10/webpack/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=https://gt333.github.io/2017/12/14/webpack/" alt="微信分享二维码">
     </div>
 </div>
 
